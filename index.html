@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - ค้นหาด้วย AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🖼️ Photo Gallery</h1>
+                <p>ค้นหารูปภาพด้วย AI และ Upload ไปยัง Google Drive</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="gallery">📸 ทั้งหมด</button>
+                <button class="tab-btn" data-tab="search">🔍 ค้นหารูป</button>
+                <button class="tab-btn" data-tab="upload">⬆️ Upload</button>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div id="gallery" class="tab-content active">
+                <div class="gallery-controls">
+                    <button class="view-btn active" id="gridView">📊 Grid</button>
+                    <button class="view-btn" id="listView">📋 List</button>
+                </div>
+                <div id="galleryContainer" class="gallery-grid">
+                    <div class="loading">กำลังโหลดรูปภาพ...</div>
+                </div>
+            </div>
+
+            <!-- Search Tab -->
+            <div id="search" class="tab-content">
+                <div class="search-section">
+                    <h2>ค้นหารูปภาพที่คล้ายกัน</h2>
+                    <div class="search-box">
+                        <label for="imageInput">อัปโหลดรูปตัวอย่าง:</label>
+                        <input type="file" id="imageInput" accept="image/*">
+                        <button id="searchBtn" class="btn btn-primary">🔍 ค้นหา</button>
+                    </div>
+                    <div id="searchPreview" class="preview-container" style="display:none;">
+                        <img id="previewImg" src="" alt="Preview">
+                    </div>
+                </div>
+                <div id="searchResults" class="gallery-grid" style="margin-top: 30px;">
+                    <!-- ผลลัพธ์การค้นหา -->
+                </div>
+            </div>
+
+            <!-- Upload Tab -->
+            <div id="upload" class="tab-content">
+                <div class="upload-section">
+                    <h2>อัปโหลดรูปภาพไปยัง Google Drive</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <p>💾 ลากรูปมาที่นี่ หรือ คลิกเพื่ออัปโหลด</p>
+                        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    </div>
+                    <div id="uploadProgress" style="display:none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p id="uploadStatus">อัปโหลดกำลังดำเนินการ...</p>
+                    </div>
+                    <div id="uploadResults"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal for Image Viewer -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modalImage" src="" alt="Full Size">
+                <div class="image-info">
+                    <p id="imageName"></p>
+                    <a id="driveLink" href="#" target="_blank" class="btn btn-secondary">📂 เปิด Google Drive</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Photo Gallery | ออกแบบด้วย ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
